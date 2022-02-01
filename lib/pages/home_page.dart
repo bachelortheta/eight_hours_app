@@ -7,7 +7,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Appbar'),
+        title: const Text('Appbar'),
       ),
       body: const Center(child: Text('THIS IS CENTER'),),
     );

@@ -1,32 +1,88 @@
 // ignore_for_file: unnecessary_const
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class LoginPage extends StatelessWidget {
-  LoginPage({ Key? key }) : super(key: key);
+  const LoginPage({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 200,
-              height: 50,
-              decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(10)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            
+            //making some space on top of image
+            const SizedBox(
+              height: 20.0,
+            ),
+
+            //making child 1 in column as image asset
+            Image.asset('assets/images/login_image2.png',
+            fit: BoxFit.fitHeight,
+            alignment: Alignment.center,),
+
+            //making some space on top of image
+            const SizedBox(
+              height: 10.0,
+            ),
+
+            //making welcome to login screen text
+            Text('Login Welcome', 
+            style:  GoogleFonts.lato(textStyle: const TextStyle(
+              fontSize: 20, 
+              fontWeight: FontWeight.w800,
+              color: Colors.blue,
+            )
+            ),
+            ),
+
+            //username and password child
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10 , horizontal: 30),
+              child: Column(
                 children: [
-                  Text('LOGIN PAGE',style: TextStyle(color: Colors.white),),
-                  Icon(Icons.login,color: Colors.white,),
+                  //username textfield
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: "Name",
+                      labelStyle: TextStyle(fontSize: 15),
+                      hintText: "Enter your name",
+
+                    ),
+                    keyboardType: TextInputType.name,
+                  ),
+
+                  //password textfield
+                  TextFormField(
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      labelText: "Password",
+                      labelStyle: TextStyle(fontSize: 15),
+                      hintText: "Enter Password",
+                    ),
+                  )
                 ],
               ),
+            ),
+
+            SizedBox(
+              width: 80,
+              child: ElevatedButton(
+                onPressed: (){
+                  print('button is pressed');
+                }, 
+                child: const Center(
+                  child: Text('Submit'),
+                ),
+                ),
             )
           ],
         ),
-      ),
+      )
     );
   }
 }

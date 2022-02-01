@@ -1,6 +1,5 @@
 import 'package:eight_hours_app/pages/login_page.dart';
 import 'package:flutter/material.dart';
-
 import 'pages/home_page.dart';
 
 void main() {
@@ -15,13 +14,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        primaryColor: Colors.white,
         primarySwatch: Colors.blue,
       ),
-      initialRoute: "/login",
+      // initialRoute: "/login",
       routes: {
-        "/": (context) => const MyHomePage(),
+        "/": (context) => const LoginPage(),
         "/home": (context) => const MyHomePage(),
-        "/login": (context) => LoginPage(),
+        "/login": (context) => const LoginPage(),
       },
     );
   }
