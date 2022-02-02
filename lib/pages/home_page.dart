@@ -6,10 +6,16 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Appbar'),
+        title: const Text('Homepage'),
       ),
-      body: const Center(child: Text('THIS IS CENTER'),),
+      drawer: const Drawer(
+
+      ),
+      body: Center(
+        child: Image.asset("assets/images/homescreen.png")
+        ),
     );
   }
 }
