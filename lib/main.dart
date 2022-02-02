@@ -1,4 +1,5 @@
 import 'package:eight_hours_app/pages/login_page.dart';
+import 'package:eight_hours_app/pages/login_page2.dart';
 import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 
@@ -19,9 +20,10 @@ class MyApp extends StatelessWidget {
       ),
       // initialRoute: "/login",
       routes: {
-        "/": (context) => const LoginPage(),
+        "/": (context) => const LoginPage2(),
         "/home": (context) => const MyHomePage(),
         "/login": (context) => const LoginPage(),
+        "/login2": (context) => const LoginPage2(),
       },
     );
   }
