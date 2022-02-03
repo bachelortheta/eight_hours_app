@@ -13,9 +13,36 @@ class LoginPage2 extends StatefulWidget {
 class _LoginPage2State extends State<LoginPage2> {
   @override
 
-  String welcome_note = "Hallelujah!";
-  bool changeButton = false;
+  String welcome_note = "Hallelujah!"; //welcome starting state
+  bool changeButton = false; //
+  //key of form
+  final _formKey = GlobalKey<FormState>();
 
+  //move to homeFunction
+  moveToHome(BuildContext context) async {                  
+    //running a validation check
+    if (_formKey.currentState!.validate()) {
+      //using Navigator to access the homescreen
+      //changing value for updating above
+      setState(() {
+        changeButton = true;  
+      });
+      
+      //delay duration
+      await Future.delayed(const Duration(seconds: 1));
+      
+      //for navigation
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+
+      //changing everything back to normal
+      setState(() {
+        changeButton = false;
+        _formKey.currentState!.reset();
+      });
+    }
+    
+  }
+  
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,   //17 pixels from bottom overflow solution
@@ -44,7 +71,7 @@ class _LoginPage2State extends State<LoginPage2> {
       
               //welcome
               Center(
-                child: Text(welcome_note,
+                child: Text(changeButton?welcome_note: "Login Screen",
                 style: GoogleFonts.roboto(
                   textStyle: const TextStyle(
                     fontSize: 20,
@@ -62,25 +89,45 @@ class _LoginPage2State extends State<LoginPage2> {
               //username, password
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 50),
-                child: Column(
-                  children: [
-                    //username
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        hintText: 'Enter your name',
-                        labelText: 'Name',),
-                        onChanged: (value){
-                              welcome_note = "Welcome "+value;
+                child: Form(
+                  key: _formKey, //this key will take latest state of the form
+                  child: Column(
+                    children: [
+                      //username
+                      TextFormField(
+                        decoration: const InputDecoration(
+                          hintText: 'Enter your name',
+                          labelText: 'Name',),
+                          onChanged: (value){
+                                welcome_note = "Welcome "+value;
+                          },
+                          validator: (value){
+                            if (value!.isEmpty) {
+                              return "Name is Required";
+                            }
+                            return null;
+                          },
+                          // controller: 'username reset controller',
+                      ),
+                      //password
+                      TextFormField(
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          hintText: 'Enter password',
+                          labelText: 'Password',),
+                        validator: (value){
+                            if (value!.isEmpty) {
+                              return "Password is Required";
+                            }
+                            else if (value.length<6) {
+                              return "Password should be minimum 6 character long";
+                            }
+                            return null;
                         },
-                    ),
-                    //password
-                    TextFormField(
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                        hintText: 'Enter password',
-                        labelText: 'Password',),
-                    ),
-                  ],
+                        // controller: 'password reset controller',  
+                      ),
+                    ],
+                  ),
                 ),
               ),
       
@@ -91,20 +138,7 @@ class _LoginPage2State extends State<LoginPage2> {
       
               //submit button with container
               InkWell(
-                onTap: () async {
-                  //using Navigator to access the homescreen
-                    //changing value for updating above
-                    setState(() {
-                      changeButton = true;  
-                    });
-                    
-                    //delay duration
-                    await Future.delayed(const Duration(seconds: 2));
-                    
-                    //for navigation
-                    Navigator.pushNamed(context, MyRoutes.homeRoute);
-
-                  },
+                onTap: () => moveToHome(context), 
                 child: AnimatedContainer(
                   duration: const Duration(seconds: 1),
                   width: changeButton? 35 : 70,
