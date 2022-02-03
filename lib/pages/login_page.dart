@@ -76,7 +76,7 @@ class LoginPage extends StatelessWidget {
                   print('button is pressed');
                 }, 
                 child: const Center(
-                  child: Text('Submit'),
+                  child: Text('Login'),
                 ),
                 ),
             )

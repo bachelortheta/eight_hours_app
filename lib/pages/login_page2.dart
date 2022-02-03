@@ -13,11 +13,12 @@ class LoginPage2 extends StatefulWidget {
 class _LoginPage2State extends State<LoginPage2> {
   @override
 
-  String welcome_note = "Hallelujah!"; //welcome starting state
+  String welcome_note = ""; //welcome starting state
   bool changeButton = false; //
   //key of form
   final _formKey = GlobalKey<FormState>();
 
+//FUNCTIONS
   //move to homeFunction
   moveToHome(BuildContext context) async {                  
     //running a validation check
@@ -28,6 +29,13 @@ class _LoginPage2State extends State<LoginPage2> {
         changeButton = true;  
       });
       
+      //closing the keyboard automatically
+      FocusScopeNode currentFocus = FocusScope.of(context);
+
+      if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+
       //delay duration
       await Future.delayed(const Duration(seconds: 1));
       
@@ -41,8 +49,9 @@ class _LoginPage2State extends State<LoginPage2> {
       });
     }
     
-  }
+  } //END OF moveToHome Function
   
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,   //17 pixels from bottom overflow solution
@@ -71,7 +80,7 @@ class _LoginPage2State extends State<LoginPage2> {
       
               //welcome
               Center(
-                child: Text(changeButton?welcome_note: "Login Screen",
+                child: Text(changeButton?welcome_note: "Hallelujah!", 
                 style: GoogleFonts.roboto(
                   textStyle: const TextStyle(
                     fontSize: 20,
@@ -137,22 +146,30 @@ class _LoginPage2State extends State<LoginPage2> {
               ),
       
               //submit button with container
-              InkWell(
-                onTap: () => moveToHome(context), 
-                child: AnimatedContainer(
-                  duration: const Duration(seconds: 1),
-                  width: changeButton? 35 : 70,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(changeButton?20:10),
-                    ),
-                  child: changeButton?(const Icon(Icons.play_arrow_rounded,color: Colors.white,)):const Text('Login',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-                    ),
-                    alignment: Alignment.center,
+                //Inkwell splash works when then ancestor in material
+                //the decoration should be given to the ancestor
+              Material(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(changeButton?20:10),
+                child: InkWell(
+                  // highlightColor: Colors.blue.shade100,
+                  splashColor: Colors.blue.shade100,
+                  onTap: () => moveToHome(context), 
+                  child: AnimatedContainer(
+                    duration: const Duration(seconds: 1),
+                    width: changeButton? 40 : 70,
+                    height: 40,
+                    // decoration: BoxDecoration(
+                    //   color: Colors.blue,
+                    //   borderRadius: BorderRadius.circular(changeButton?20:10),
+                    //   ),
+                    child: changeButton?(const Icon(Icons.play_arrow_rounded,color: Colors.white,)):const Text('Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                      ),
+                      alignment: Alignment.center,
+                  ),
                 ),
               ),
               
