@@ -1,4 +1,6 @@
+import 'package:eight_hours_app/models/catalog.dart';
 import 'package:eight_hours_app/utils/routes.dart';
+import 'package:eight_hours_app/widgets/items_widget.dart';
 import 'package:eight_hours_app/widgets/myDrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
@@ -28,7 +30,7 @@ class MyHomePage extends StatelessWidget {
             ),
 
             //title of page
-            const Text('Homepage',
+            const Text('Catalog',
             style: TextStyle(
               fontWeight: FontWeight.w600, 
               // color: Colors.blue,
@@ -52,8 +54,17 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       drawer: const myDrawer(),
-      body: Center(
-        child: Image.asset("assets/images/homescreen.png",fit: BoxFit.scaleDown,)
+      body: 
+      // Center(
+      //   child: Image.asset("assets/images/homescreen.png",fit: BoxFit.scaleDown,)
+      //   )
+      //Making a catalog
+      ListView.builder(
+        itemCount: catalogModel.products.length, //items will equal to length of items in catalogModel class array
+        itemBuilder: (context, index){
+          //formation of the catalog
+          return itemsWidget(item: catalogModel.products[index],); //this widget will be created
+        }
         ),
     );
   }
