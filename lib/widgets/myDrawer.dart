@@ -1,3 +1,4 @@
+import 'package:eight_hours_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 class myDrawer extends StatelessWidget {
@@ -46,7 +47,7 @@ class myDrawer extends StatelessWidget {
 
             //for making FAQ
             InkWell(
-              onTap: () => Navigator.pop(context),
+              // onTap: () => Navigator.pop(context),
               child: const ListTile(
                 leading: Icon(Icons.question_answer_rounded,
                 color: Colors.blue,),
@@ -58,7 +59,7 @@ class myDrawer extends StatelessWidget {
             //for making Settings
             InkWell(
               child: ListTile(
-                onTap: () => Navigator.pop(context),
+                // onTap: () => Navigator.pop(context),
                 leading: const Icon(Icons.settings_rounded,
                 color: Colors.blue,),
                 title: const Text('Settings',
