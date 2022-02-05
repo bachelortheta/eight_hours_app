@@ -1,5 +1,4 @@
 //making class that will specify the properties of the single item
-import 'package:flutter/material.dart';
 
 class Item{
   final num id; //product id

@@ -14,11 +14,11 @@ class myDrawer extends StatelessWidget {
           //making the header of drawer
           const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue),
+              color: Colors.black),
             padding: EdgeInsets.zero,
             child: UserAccountsDrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue),
+                color: Colors.black),
               //seting name in header
               accountName: Text('Kamran',
               style: TextStyle(color: Colors.white),), 
@@ -27,7 +27,7 @@ class myDrawer extends StatelessWidget {
               style: TextStyle(color: Colors.white),),
               //setting picture in header
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage("assets/images/user_image.png"),
+                backgroundImage: AssetImage("assets/images/kamran.png"),
                 radius: 0.0,),
                 ),
               ),
@@ -36,22 +36,22 @@ class myDrawer extends StatelessWidget {
           //for making the menu items
             //for making home
             InkWell(
-              onTap: () => Navigator.pop(context),
+              onTap: () => Navigator.popAndPushNamed(context, MyRoutes.homeRoute),
               child: const ListTile(
                 leading: Icon(Icons.home_rounded,
-                color: Colors.blue,),
+                color: Colors.black,),
                 title: Text('Home',
                 style: TextStyle(fontWeight: FontWeight.bold),),
               ),
             ),
 
-            //for making FAQ
+            //for making Clothes Catalog
             InkWell(
-              // onTap: () => Navigator.pop(context),
+              onTap: () => Navigator.popAndPushNamed(context, MyRoutes.ClothesCatalog),
               child: const ListTile(
-                leading: Icon(Icons.question_answer_rounded,
-                color: Colors.blue,),
-                title: Text('FAQ',
+                leading: Icon(Icons.shopping_cart,
+                color: Colors.black,),
+                title: Text('Clothes',
                 style: TextStyle(fontWeight: FontWeight.bold),),
               ),
             ),
@@ -59,13 +59,23 @@ class myDrawer extends StatelessWidget {
             //for making Settings
             InkWell(
               child: ListTile(
-                // onTap: () => Navigator.pop(context),
+                onTap: () => Navigator.popAndPushNamed(context, MyRoutes.settings),
                 leading: const Icon(Icons.settings_rounded,
-                color: Colors.blue,),
+                color: Colors.black,),
                 title: const Text('Settings',
                 style: TextStyle(fontWeight: FontWeight.bold),),
               ),
             ),
+
+            InkWell(
+              child: ListTile(
+                onTap: () => Navigator.popAndPushNamed(context, MyRoutes.shoesCatalog),
+                leading: const Icon(Icons.shop_rounded,
+                color: Colors.black,),
+                title: const Text('Shoes',
+                style: TextStyle(fontWeight: FontWeight.bold),),
+              ),
+            )
         ],),
     );
   }

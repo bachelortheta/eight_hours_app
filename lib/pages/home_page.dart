@@ -1,5 +1,6 @@
 import 'package:eight_hours_app/models/catalog.dart';
 import 'package:eight_hours_app/utils/routes.dart';
+import 'package:eight_hours_app/widgets/MainAppBar.dart';
 import 'package:eight_hours_app/widgets/items_widget.dart';
 import 'package:eight_hours_app/widgets/myDrawer.dart';
 import 'package:flutter/material.dart';
@@ -11,61 +12,25 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        //this setting is for the specific page appbar, to edit for complete
-        //go to the theme in main
-        // backgroundColor: Colors.white,
-        // iconTheme: IconThemeData(color: Colors.blue),
-        // //removing the shadow as well
-        // elevation: 0.0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-
-            //puting space
-            const SizedBox(
-              width: 80,
-            ),
-
-            //title of page
-            const Text('Catalog',
-            style: TextStyle(
-              fontWeight: FontWeight.w600, 
-              // color: Colors.blue,
-              fontSize: 18),),
-
-            //puting space
-            const SizedBox(
-              width: 90,
-            ),
-
-            //icon for logout
-            InkWell(
-              onTap: () => {
-                Navigator.pushNamed(context, MyRoutes.LoginRoute2),
-                },
-
-              child: const Icon(
-                EvaIcons.logOut,color: Colors.black,),
-            )
-          ],
-        ),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBarMain(textColor: Colors.black, Page: 'Mobiles', backgroundColor: Colors.white,),
+        drawer: const myDrawer(),
+        body: 
+        // Center(
+        //   child: Image.asset("assets/images/homescreen.png",fit: BoxFit.scaleDown,)
+        //   )
+        //Making a catalog
+        ListView.builder(
+          itemCount: catalogModel.products.length, //items will equal to length of items in catalogModel class array
+          itemBuilder: (context, index){
+            //formation of the catalog
+            return itemsWidget(item: catalogModel.products[index],); //this widget will be created
+          }
+          ),
       ),
-      drawer: const myDrawer(),
-      body: 
-      // Center(
-      //   child: Image.asset("assets/images/homescreen.png",fit: BoxFit.scaleDown,)
-      //   )
-      //Making a catalog
-      ListView.builder(
-        itemCount: catalogModel.products.length, //items will equal to length of items in catalogModel class array
-        itemBuilder: (context, index){
-          //formation of the catalog
-          return itemsWidget(item: catalogModel.products[index],); //this widget will be created
-        }
-        ),
     );
   }
 }

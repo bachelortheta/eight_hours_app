@@ -8,9 +8,9 @@ class MyThemes {
           elevation: 0.0,
           backgroundColor: Colors.white,
           iconTheme: IconThemeData(
-            color: Colors.blue), 
+            color: Colors.black), 
           // toolbarTextStyle: Theme.of(context).textTheme.bodyText2, 
-          titleTextStyle: Theme.of(context).textTheme.headline4,
+          titleTextStyle: Theme.of(context).textTheme.headline5, 
         )
       ); 
 }
