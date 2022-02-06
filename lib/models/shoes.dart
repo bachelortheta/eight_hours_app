@@ -20,7 +20,7 @@ class shoesCatalog {
     shoe(
     size: 8, 
     color: "black", 
-    ImageURL: "ImageURL", 
+    ImageURL: "http://freepngimg.com/thumb/shoes/21860-7-red-shoes-thumb.png", 
     price: 50,
     ),
 
@@ -28,7 +28,7 @@ class shoesCatalog {
     shoe(
     size: 9, 
     color: "red", 
-    ImageURL: "ImageURL", 
+    ImageURL: "http://5.imimg.com/data5/CB/JW/MY-20432762/casual-slip-on-shoes-500x500.png", 
     price: 40,
     ),
   ];

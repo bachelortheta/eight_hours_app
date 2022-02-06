@@ -1,3 +1,4 @@
+import 'package:eight_hours_app/fonts/priceFont.dart';
 import 'package:eight_hours_app/models/catalog.dart';
 import 'package:flutter/material.dart';
 
@@ -22,9 +23,9 @@ class itemsWidget extends StatelessWidget {
             return print("${item.name} pressed");
           },
           leading: CircleAvatar(backgroundImage: NetworkImage(item.image)),
-          title: Text(item.name),
+          title: Text(item.name, style: TextStyle(fontWeight: FontWeight.w600),),
           subtitle: Text(item.desc),
-          trailing: Text("\$${item.price}"),
+          trailing: priceFont(text: "\$${item.price}"),
         ),
       ),
     );

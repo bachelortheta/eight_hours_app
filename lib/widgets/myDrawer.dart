@@ -56,6 +56,16 @@ class myDrawer extends StatelessWidget {
               ),
             ),
 
+            InkWell(
+              child: ListTile(
+                onTap: () => Navigator.popAndPushNamed(context, MyRoutes.shoesCatalog),
+                leading: const Icon(Icons.shop_rounded,
+                color: Colors.black,),
+                title: const Text('Shoes',
+                style: TextStyle(fontWeight: FontWeight.bold),),
+              ),
+            ),
+
             //for making Settings
             InkWell(
               child: ListTile(
@@ -66,16 +76,6 @@ class myDrawer extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold),),
               ),
             ),
-
-            InkWell(
-              child: ListTile(
-                onTap: () => Navigator.popAndPushNamed(context, MyRoutes.shoesCatalog),
-                leading: const Icon(Icons.shop_rounded,
-                color: Colors.black,),
-                title: const Text('Shoes',
-                style: TextStyle(fontWeight: FontWeight.bold),),
-              ),
-            )
         ],),
     );
   }

@@ -1,4 +1,5 @@
 //creating a stateless widget
+import 'package:eight_hours_app/fonts/priceFont.dart';
 import 'package:eight_hours_app/models/shoes.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class shoesWidget extends StatelessWidget {
         backgroundImage: NetworkImage(Shoe.ImageURL),
       ),
       title: Text(Shoe.color),
-      trailing: Text("$Shoe.price"),
+      trailing: priceFont(text: "\$${Shoe.price}"),
     );
   }
 }

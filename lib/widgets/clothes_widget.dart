@@ -1,3 +1,4 @@
+import 'package:eight_hours_app/fonts/priceFont.dart';
 import 'package:eight_hours_app/models/clothes.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class clothesWidget extends StatelessWidget {
         // contentPadding: EdgeInsets.zero,
         leading: CircleAvatar(backgroundImage: NetworkImage(Cloth.imageURL)),
         title: Text(Cloth.brand),
-        trailing: Text("${Cloth.price}"),
+        trailing: priceFont(text: "\$${Cloth.price}"),
         subtitle: Text("${Cloth.size}"),
       ),
     );

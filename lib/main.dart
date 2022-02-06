@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: MyThemes.lightTheme(context),
       // initialRoute: "/login",
       routes: {
-        MyRoutes.Route: (context) => const MyHomePage(),
+        MyRoutes.Route: (context) => const LoginPage2(),
         MyRoutes.homeRoute: (context) => const MyHomePage(),
         MyRoutes.LoginRoute1: (context) => const LoginPage(),
         MyRoutes.LoginRoute2: (context) => const LoginPage2(),
