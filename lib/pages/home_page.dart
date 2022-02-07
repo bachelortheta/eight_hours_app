@@ -50,19 +50,26 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBarMain(textColor: Colors.black, Page: 'Mobiles', backgroundColor: Colors.white,),
-        drawer: const myDrawer(),
+        drawer: const myDrawer(drawerColor: Color.fromARGB(255, 255, 145, 0),),
         body: 
         // Center(
         //   child: Image.asset("assets/images/homescreen.png",fit: BoxFit.scaleDown,)
         //   )
         //Making a catalog
-        (catalogModel.products!=null && catalogModel.products.isNotEmpty)?ListView.builder(
-          itemCount: catalogModel.products.length, //items will equal to length of items in catalogModel class array
-          itemBuilder: (context, index){
-            //formation of the catalog
-            return itemsWidget(item: catalogModel.products[index],); //this widget will be created
-          }
-          ): Center
+        (catalogModel.products!=null && catalogModel.products.isNotEmpty)?
+        Padding(
+          padding: const EdgeInsets.only(left: 8, right: 8),
+          child: GridView.builder(
+            itemCount: catalogModel.products.length, //items will equal to length of items in catalogModel class array
+            itemBuilder: (context, index){
+              //formation of the catalog
+              return itemsWidget(item: catalogModel.products[index],); //this widget will be created
+            }, gridDelegate: 
+            SliverGridDelegateWithFixedCrossAxisCount(
+              // crossAxisSpacing: 5,
+              crossAxisCount: 2),
+            ),
+        ): Center
           (child: const CircularProgressIndicator(),) ,
       ),
     );

@@ -15,7 +15,7 @@ class priceFont extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(fontSize: size, color: color), 
+      style: TextStyle(fontSize: size, color: color, fontWeight: FontWeight.bold), 
     );
   }
 }

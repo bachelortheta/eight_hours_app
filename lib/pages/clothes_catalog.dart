@@ -13,7 +13,7 @@ class ClothesCatalog extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBarMain(textColor: Colors.black, Page: 'Clothes', backgroundColor: Colors.white,),
-      drawer: const myDrawer(),
+      drawer: const myDrawer(drawerColor: Colors.blue,),
       body: 
         // child: Image.asset("assets/images/homescreen.png",fit: BoxFit.scaleDown,)
         ListView.builder(

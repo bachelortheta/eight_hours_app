@@ -13,7 +13,7 @@ class settings extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBarMain(textColor: Colors.black, Page: 'Settings', backgroundColor: Colors.white,),
-        drawer: const myDrawer(),
+        drawer: const myDrawer(drawerColor: Colors.purple,),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

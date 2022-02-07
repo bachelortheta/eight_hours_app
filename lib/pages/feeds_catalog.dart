@@ -54,7 +54,7 @@ class _feeds_CatalogState extends State<feeds_Catalog> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBarMain(textColor: Colors.black, Page: 'Feeds', backgroundColor: Colors.white,),
-      drawer: const myDrawer(),
+      drawer: const myDrawer(drawerColor: Colors.black,),
       body: 
         // child: Image.asset("assets/images/homescreen.png",fit: BoxFit.scaleDown,)
         (feedsCatalog.feeds!=null && feedsCatalog.feeds.isNotEmpty)?ListView.builder(

@@ -2,7 +2,10 @@ import 'package:eight_hours_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 class myDrawer extends StatelessWidget {
-  const myDrawer({ Key? key }) : super(key: key);
+  
+  final Color drawerColor;
+
+  const myDrawer({Key? key, required this.drawerColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +15,13 @@ class myDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           //making the header of drawer
-          const DrawerHeader(
+          DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.black),
+              color: drawerColor),
             padding: EdgeInsets.zero,
             child: UserAccountsDrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.black),
+                color: drawerColor),
               //seting name in header
               accountName: Text('Kamran',
               style: TextStyle(color: Colors.white),), 
@@ -36,7 +39,7 @@ class myDrawer extends StatelessWidget {
           //for making the menu items
             //for making home
             InkWell(
-              onTap: () => Navigator.popAndPushNamed(context, MyRoutes.homeRoute),
+              onTap: () => Navigator.restorablePopAndPushNamed(context, MyRoutes.homeRoute),
               child: const ListTile(
                 leading: Icon(Icons.home_rounded,
                 color: Colors.black,),
