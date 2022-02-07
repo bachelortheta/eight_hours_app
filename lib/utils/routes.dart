@@ -6,4 +6,5 @@ class MyRoutes{
   static String ClothesCatalog = "/clothes";
   static String settings = "/settings";
   static String shoesCatalog = "/shoes";
+  static String feedsCatalog = "/feeds";
 }

@@ -76,6 +76,16 @@ class myDrawer extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold),),
               ),
             ),
+
+            InkWell(
+              child: ListTile(
+                onTap: () => Navigator.popAndPushNamed(context, MyRoutes.feedsCatalog),
+                leading: const Icon(Icons.feed_sharp,
+                color: Colors.black,),
+                title: const Text('Feeds',
+                style: TextStyle(fontWeight: FontWeight.bold),),
+              ),
+            ),
         ],),
     );
   }
