@@ -8,4 +8,5 @@ class MyRoutes{
   static String settings = "/settings";
   static String shoesCatalog = "/shoes";
   static String feedsCatalog = "/feeds";
+  static String feedsCatalog2 = "/feeds2";
 }

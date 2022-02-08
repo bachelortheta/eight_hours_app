@@ -82,7 +82,7 @@ class myDrawer extends StatelessWidget {
 
             InkWell(
               child: ListTile(
-                onTap: () => Navigator.popAndPushNamed(context, MyRoutes.feedsCatalog),
+                onTap: () => Navigator.popAndPushNamed(context, MyRoutes.feedsCatalog2),
                 leading: const Icon(Icons.feed_sharp,
                 color: Colors.black,),
                 title: const Text('Feeds',
