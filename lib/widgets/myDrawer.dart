@@ -39,7 +39,7 @@ class myDrawer extends StatelessWidget {
           //for making the menu items
             //for making home
             InkWell(
-              onTap: () => Navigator.restorablePopAndPushNamed(context, MyRoutes.homeRoute),
+              onTap: () => Navigator.restorablePopAndPushNamed(context, MyRoutes.homeRoute2),
               child: const ListTile(
                 leading: Icon(Icons.home_rounded,
                 color: Colors.black,),

@@ -1,5 +1,6 @@
 import 'package:eight_hours_app/pages/clothes_catalog.dart';
 import 'package:eight_hours_app/pages/feeds_catalog.dart';
+import 'package:eight_hours_app/pages/homepage2.dart';
 import 'package:eight_hours_app/pages/login_page.dart';
 import 'package:eight_hours_app/pages/login_page2.dart';
 import 'package:eight_hours_app/pages/settings.dart';
@@ -24,8 +25,9 @@ class MyApp extends StatelessWidget {
       theme: MyThemes.lightTheme(context),
       // initialRoute: "/login",
       routes: {
-        MyRoutes.Route: (context) => const MyHomePage(),
+        MyRoutes.Route: (context) => const MyHomePage2(),
         MyRoutes.homeRoute: (context) => const MyHomePage(),
+        MyRoutes.homeRoute2: (context) => const MyHomePage2(),
         MyRoutes.LoginRoute1: (context) => const LoginPage(),
         MyRoutes.LoginRoute2: (context) => const LoginPage2(),
         MyRoutes.ClothesCatalog: (context) => const ClothesCatalog(),
