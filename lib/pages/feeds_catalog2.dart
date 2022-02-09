@@ -62,7 +62,7 @@ class _feeds_CatalogState2 extends State<feeds_Catalog2> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //making header
-            feedsHeader(),
+            feedsHeader().p16(),
             if(
               feedsCatalog.feeds!=null && feedsCatalog.feeds.isNotEmpty
             )
@@ -72,7 +72,7 @@ class _feeds_CatalogState2 extends State<feeds_Catalog2> {
                 Center(child: CircularProgressIndicator(),)
               )
           ],
-        ).p32() 
+        ).p0() 
         );
   }
 }
@@ -112,16 +112,20 @@ class feedsList extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Feed.name.text.bold.xl2.color(Colors.purple).make(),
+                Feed.name.text.bold.xl2.color(Colors.blue).make(),
                 Feed.title.text.xs.color(Colors.purple).make(),
                 ButtonBar(
-                  alignment: MainAxisAlignment.spaceBetween,
+                  alignment: MainAxisAlignment.end,
                   children: [
-                    "Call".text.xl2.bold.make(),
+                    "Call".text.color(Colors.blue).xl2.bold.make(),
                     ElevatedButton(onPressed: (){
 
-                    }, 
-                    child: "Phone".text.make())
+                    },
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all(StadiumBorder(),),
+                      backgroundColor: MaterialStateProperty.all(Colors.purple)
+                    ), 
+                    child: Icon(Icons.call_end_rounded))
                   ],
                 ).pOnly(top: 10)
               ],

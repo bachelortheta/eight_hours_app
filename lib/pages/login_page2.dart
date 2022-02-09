@@ -40,7 +40,7 @@ class _LoginPage2State extends State<LoginPage2> {
       await Future.delayed(const Duration(seconds: 1));
       
       //for navigation
-      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+      await Navigator.pushNamed(context, MyRoutes.homeRoute2);
 
       //changing everything back to normal
       setState(() {

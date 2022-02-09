@@ -1,5 +1,6 @@
 import 'package:eight_hours_app/utils/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class myDrawer extends StatelessWidget {
   
@@ -23,13 +24,13 @@ class myDrawer extends StatelessWidget {
               decoration: BoxDecoration(
                 color: drawerColor),
               //seting name in header
-              accountName: Text('Kamran',
+              accountName: const Text('Kamran',
               style: TextStyle(color: Colors.white),), 
               //setting email in header
-              accountEmail: Text('kaamipresents@gmail.com',
+              accountEmail: const Text('kaamipresents@gmail.com',
               style: TextStyle(color: Colors.white),),
               //setting picture in header
-              currentAccountPicture: CircleAvatar(
+              currentAccountPicture: const CircleAvatar(
                 backgroundImage: AssetImage("assets/images/kamran.png"),
                 radius: 0.0,),
                 ),
@@ -48,11 +49,22 @@ class myDrawer extends StatelessWidget {
               ),
             ),
 
+
+            InkWell(
+              onTap: () => Navigator.restorablePopAndPushNamed(context, MyRoutes.movies),
+              child: const ListTile(
+                leading: Icon(Icons.movie_sharp,
+                color: Colors.black,),
+                title: Text('Movies',
+                style: TextStyle(fontWeight: FontWeight.bold),),
+              ),
+            ),
+
             //for making Clothes Catalog
             InkWell(
               onTap: () => Navigator.popAndPushNamed(context, MyRoutes.ClothesCatalog),
               child: const ListTile(
-                leading: Icon(Icons.shopping_cart,
+                leading: Icon(FontAwesomeIcons.tshirt,
                 color: Colors.black,),
                 title: Text('Clothes',
                 style: TextStyle(fontWeight: FontWeight.bold),),
@@ -62,7 +74,7 @@ class myDrawer extends StatelessWidget {
             InkWell(
               child: ListTile(
                 onTap: () => Navigator.popAndPushNamed(context, MyRoutes.shoesCatalog),
-                leading: const Icon(Icons.shop_rounded,
+                leading: const Icon(FontAwesomeIcons.shoePrints,
                 color: Colors.black,),
                 title: const Text('Shoes',
                 style: TextStyle(fontWeight: FontWeight.bold),),
